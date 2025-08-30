@@ -13,3 +13,6 @@
 *.gz
 *.fdb_latexmk
 *.bbl
+*.chktexrc
+*.ilg
+*.nls

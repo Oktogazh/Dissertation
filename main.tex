@@ -8,28 +8,6 @@
 \usepackage{amsmath}
 \usepackage{subcaption}
 \usepackage{appendix}
-\usepackage{listings}
-\usepackage{xcolor}
-
-% Define TypeScript style
-\lstdefinestyle{typescript}{
-  basicstyle=\ttfamily\small,
-  keywordstyle=\color{blue}\ttfamily,
-  stringstyle=\color{green}\ttfamily,
-  commentstyle=\color{gray}\ttfamily,
-  % Add TypeScript-specific keywords
-  morekeywords={interface, type, enum, any, unknown, never, void, boolean, number, string, Array, Promise, async, await, readonly, keyof, infer, extends, Partial, Pick, Omit, Record, ReturnType, as, satisfies, namespace, module, declare, abstract, implements, override},
-  breaklines=true,
-  frame=single,
-  rulecolor=\color{black},
-  backgroundcolor=\color{white},
-  showstringspaces=false,
-  captionpos=b,
-  numbers=left,
-  numberstyle=\tiny\color{gray},
-  stepnumber=1,
-  numbersep=5pt,
-}
 
 \title{Leksis, an Adaptive Vocabulary Test For Low-Resource Languages}
 \author{Alan Kersaudy}
@@ -60,7 +38,7 @@
     \include{chapters/5_conclusion}
 
     \begin{appendices}
-    \include{chapters/annex}
+      \include{chapters/annex}
     \end{appendices}
 
     \printbibliography
