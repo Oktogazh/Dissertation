@@ -3695,7 +3695,7 @@
 \newcommand{\tables}{
   \cleardoublepage
   \preamblenumbering
-  \setcounter{tocdepth}{1}
+  \setcounter{tocdepth}{2}
   {
     \setstretch{1.4}
     \pdfbookmark[0]{Contents}{contents}

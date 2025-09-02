@@ -20,6 +20,9 @@
 
 
 \begin{document}
+    \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+    \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+    \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
     \maketitle
     \statements
     \include{chapters/0_abstract}
@@ -33,9 +36,7 @@
 
     \include{chapters/3_methodology}
     
-    \include{chapters/4_results}
-    
-    \include{chapters/5_conclusion}
+    \include{chapters/4_discussions}
 
     \begin{appendices}
       \include{chapters/annex}
