@@ -133,3 +133,36 @@ Since a widespread use of the test is essential to better calibrate the items ra
     \includegraphics[height=0.7\textwidth]{figures/end-screen.jpg}
     \caption{End screen with the score, share link and analyse prompt button}
 \end{figure}\label{fig:endscreen}
+
+\section{Validation}
+\subsection{Construct Validity and Design Choices}
+In the domain of psychometrics, when the traits measured are latent, it is essential to test the tests, a process called validation. Validation theory is dominated by principles established by \textcite{messick_validity_1987} who unified different aspects of validity, thus simplifying previous approach to the matter.\ \textcite{borsboom_concept_2004} on his end, attempted to simplify construct validity discution a step further by incisting on key concepts in the scientific method, ontology, meaning, causation. Borboom pointed out that much of the construct validity discussion was more about the validation processes than the validity of the constructs themselves. His argument was, consciously or not, integrated in~\cite{kane_validating_2013}. This paper introduced an argument-based approach to validation, where a given test must be proposed along a set of claims, which must be tested individually.
+
+As far as construct validty is concerned, the first half of the literature review showed how a LDT vocabulary test can be used to indirectly measure other constrcuts of proficiency. The concern of this dissertation is not the validation of the construct itself, but the validation of the calibration methodology and the scoring system. This includes the following:
+
+\begin{enumerate}
+  \item The use of a logarithmic scale as a knowledge model, to represent the difficulty rating of the items.
+  \item The use of frequency lists for the ratings initialisation.
+  \item The use of the ``beans'' modulo clustering technique to increase the chances of encountering better calibrated items and optain meaningfull results without a full calibration.
+\end{enumerate}
+
+The first point, the use of a logarithmic scale, by its statistical nature, is valid. At least in a context where a large enough number of tests are taken to calibrate the items. The real issue with the current framework is its ability work without an extensive calibration. This is why the focus of the validation process must be on the two other design choices. To validate these design choices, we must make inferences on how the test would behave under certain condition. To make sure that the test would capture small variation in vocabulary level, these two inferences must be verified:
+
+\begin{enumerate}
+  \item \textbf{Reliability}: People taking the test several times in a row will obtain a similar score. Below 1000, the items initial rating are random values within some range. In French the 1000 most frequent items are randomly rated between 0–400, the 1000 to 2000 most frequent words between 400–500 and so on. By ``similar'' we mean that the scores stay within such a range.
+  \item \textbf{No ceiling effects}: People with different vocabulary level should not get stuck in the same score range. Three critical ranges can be identified: around 0, where beginer would end up with a null score despite some vocabulary knowledge; aroud 1000, where the ratings cease to be defined based on frequency and start to become truly random; around 2000, where all fluent speakers would know enough words to have a positive ratio along the 1000–2000 range.
+\end{enumerate}
+
+The most complete way to verify these inferences would be to run an integration test. Take a group of beginners in a year-long intensive course for adults and collect the results at taking the test every single week. Inspect how fast the students progress, where they stagnate, be it at similar periods in time (around holidays) or at similar score level, which would indicate a ceiling effect.
+
+Such an integration test cannot be made in the span of time covered by a dissertation. But the early development of tests for a few language may still bring insights on the matter. Especially regarding reliability, it is possible to inspect anonymous test results to see how stable the predictions become as a test session is carried on. If the score is accurate, the chance of recognising real words are around 50\%, which is a falsifiable claim. However, validating the reliability of the test does not inform on the potential ceiling effect.
+
+\subsection{Clarifications and Results Interpretation}
+Before ending this chapter, we want to clarify a few points in order avoid a misinterpretation of the results. Especially, it is understood that a growth in the test-taking skill should not be generalized blindly. That it can interpreted as proficiency growth only as long as the learning activity consist of a real use of the language, where the vocabulary is learned within the use of grammatically correct sentences. Taking the test repeatedly may make the test taker being better at taking the test without improving their proficiency proper. Finally, it is understood that tests score cannot be universally interpreted in a similar way, 1500 in the Welsh test and the French test cannot be worth the same thing for the following reasons:
+\begin{enumerate}
+  \item Socio-linguistic differences make it difficult to find equivalence in the idea of fluency.
+  \item The number of items is different for different languages, the initialisation of the items rating is based on frequency lists of different lengths. This leads to different scores at equivalent vocabulary sizes.
+  \item Considering that a wide-spread usage of the tests change the ratings dramatically, the rating of the items will have a tendency to cluster around the level of the test takers demographics. If many very fluent people take one test, the ratings value will be devaluated. If many beginners take a test, the items rating will be subject to an inflationary effect.
+\end{enumerate}
+
+None of the aspects cited above are seen as a problem for the intended goal of the test. The test aims at measuring the dynamics, the speed at which the learners acquire language over periods of weeks and months. For this purpose only reliability and the absence of ceiling effects are needed.

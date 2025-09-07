@@ -3686,7 +3686,6 @@
 \newcommand{\abbreviations}{
   \cleardoublepage
   \preamblenumbering
-  \pdfbookmark[0]{Abbreviations}{Abbreviations}
   \printnomenclature\label{chp:abbreviations}
 }
 
@@ -3702,12 +3701,10 @@
     \tableofcontents
     \iftotalfigures
       \cleardoublepage
-      \pdfbookmark[0]{List of Figures}{lof}
       \listoffigures
     \fi
     \iftotaltables
       \cleardoublepage
-      \pdfbookmark[0]{List of Tables}{lot}
       \listoftables
     \fi
   }
