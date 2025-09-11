@@ -101,7 +101,8 @@ In the case a test taker wants to retake the test after finishing a session, the
         The word ``redadeg'' is famous in Brittany because of a biannual relay race taking place across the country. Many non-speaker would still recognise this word, which makes the answer from this term a case of the previously mentioned third reason for rating update given for the wrong reason: the rating of the item does not match its real proficiency range. This problem is expected to fade as more people answer the test.
         
     \end{figure}\label{fig:screenshot}
-    \subsection{User Rating Updates and Session Duration}
+
+\subsection{User Rating Updates and Session Duration}
 The actualisation of the test takers rating takes place in real time and the current rating is shown to them. There are two ways to loose points, by not recognising a real word or by recognising a non-word. Not recognising a non-word does not influence the rating and only recognising real words increases the rating.\\
 The logarithmic base for the progression is 10, with a spreading factor of 400, like in chess in order to keep the rating human-readable. The rating is always shown to  It uses the uncertainty function \ref{uncertainty-function}, with $a=100$ and $b=0.5$. This means that a correct recognition of a real word brings 47 points the first time a real word is presented to the test taker, and roughly 8 points after a 100 times, that is, half the result of the uncertainty function because the probabilities of correct answers are always around 50\%. However the uncertainty function is capped to 20 point in order to maintain a steady growth for better performers. The pace of the rating growth is important as the length of a testing session is determined by the current rating, see below the equation that determine the number of real words to be answered.
 \begin{equation}
