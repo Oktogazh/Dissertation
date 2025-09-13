@@ -30,13 +30,14 @@ Because the ratings are capped to zero, there are little chances that a ceiling 
 The problem of the transition from the 0–1000 range (randomly rated within ranges defined on frequency lists) to the 1000+ range (randomly rated within one large range) is tighly linked to the problem mentioned earlier. The easiest items from the upper band must make their way down as fast as possible. To ensure a smoother transition in this critical junction, we propose that the two ranges be spaced from one another. The gap would be filled by the harder items from the frequency lists and the easiest randomly rated items. A gap of 100 points, would not slow down the progression of the test takers ratings.
 
 \section{Test Sessions Analysis}
+\subsection{Brier Score}
 The Brier score is the most straight-forward way to measure the accuracy in a series of a statistical prediction. We'll use it to analyze our sessions. Because we are only interrested by the knowledge of the test takers, and not their relationship to non-sense words, we shall only consider the real words in these results. The Brier score is defined by the following equation.
 
 \begin{equation}
     BS=\frac{1}{N}\sum^{N}_{t=1} (f_t - o_t)^2
 \end{equation}\label{eq:brier-score}
 
-Where $(f_t - o_t)^2$ is the squared difference between the predicted outcome (of a real word) and the actual outcome. However, as the test did only stored the final user rating (see the x axis), the value of $o_t$ is constant each test session. This can help us inspect how the pseudo words affect the final results. In figure \ref{fig:brier}, we see that many of the lower ratings also correspond to the worst brier scores. This means that many unlikely outcomes happened in these sessions. Most likely, these unlikely events are recognition of many words rated above the final score. This would be an indication of many pseudo-words being recognised, which, as we discussed already, may be either the fruit of a cheating strategy, or a higher tolerance to risk.  Unfortunately, it does not seem that much more observation can be taken from so few results.
+Where $(f_t - o_t)^2$ is the squared difference between the predicted outcome (of a real word) and the actual outcome. However, as the test did only store the final user rating (x axis), the value of $o_t$ is constant each test session. This can help us inspect how the pseudo words affect the final results. In figure \ref{fig:brier}, we see that many of the lower ratings also correspond to the worst brier scores. This means that many unlikely outcomes happened in these sessions. Most likely, these unlikely events are recognition of many words rated above the final score. This would be an indication of many pseudo-words being recognised, which, as we discussed already, may be either the fruit of a cheating strategy, or a higher tolerance to risk.  Unfortunately, it does not seem that much more observation can be taken from so few results.
 
 \begin{figure}
     \centering
@@ -49,6 +50,44 @@ Where $(f_t - o_t)^2$ is the squared difference between the predicted outcome (o
 
 Now that this preliminary analasys is made, it seems that it would have been wiser to also collect the current rating of the test taker, and not only the final one. This modification in the test result may allow deeper analysis.Wwith enough sessions stored, we could for example highlight bottlenecks or ceiling effect by making a mean difference for each rating range of a test. If some critical ranges show big deviations from the norm, it would show a ceiling effect. But this would require a larger adoption of the test.
 
+\subsection{Measuring Adaptivity}
+As mentioned in the previous chapter, we can use the last real-word recognition to test adaptivity. For the sake of consistency, we only consider the results of the Breton test, which has the most results. 142 test sessions were gathered in the results. The number of last real words recognised in the last round of a test is 73, which makes 51.4\%. If we were trying to prove the hypothesis of faulty calibration of the system, we would need a p-value bellow 0.05. However, the current results yeld a p-value of 0.801339022, which is really high, and thus does not invalidate the corresponding null hypothesis that the chances of recognising the last real word are highly uncertain.
+This result is highly encouraging in many ways. Firstly, only three categories of real words were used to pre-calibrate the items in the test. The benefits of using the modulo clusters to create an hybrid system between proportion of correct answers and a classic logistic scale is thus conforted. Second, the level of pressision claimed is really high. The pression is defined by the uncertainty function \ref{uncertainty-function}. It is variable, because dependant on the the number of real words seen in the session, number which depends on the length of length of the session, which dependents on the rating. Unfortunately, the final value of the uncertainty function was not stored. It is at most ±52, if no word is recognised, and go down as the rating goes up.
+As the early results on testing the adaptivity of the test were encouraging, we propose to extend the analysis to specific ranges. The result are given in the following table.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{ranges} & \textbf{sessions} & \textbf{recognised last word} & \textbf{observed mean} & \textbf{expected} & \textbf{p-value} \\
+\hline
+(0, 100] & 10 & 6 & 0.600000 & 0.5 & 0.753906 \\
+(100, 200] & 7 & 1 & 0.142857 & 0.5 & 0.125000 \\
+(200, 300] & 7 & 2 & 0.285714 & 0.5 & 0.453125 \\
+(300, 400] & 12 & 6 & 0.500000 & 0.5 & 1.000000 \\
+(400, 500] & 14 & 6 & 0.428571 & 0.5 & 0.790527 \\
+(500, 600] & 29 & 16 & 0.551724 & 0.5 & 0.711071 \\
+(600, 700] & 22 & 12 & 0.545455 & 0.5 & 0.831812 \\
+(700, 800] & 22 & 13 & 0.590909 & 0.5 & 0.523467 \\
+(800, 900] & 7 & 6 & 0.857143 & 0.5 & 0.125000 \\
+(900, 1000] & 8 & 3 & 0.375000 & 0.5 & 0.726562 \\
+(1000, 1100] & 2 & 1 & 0.500000 & 0.5 & 1.000000 \\
+(1100, 1200] & 1 & 1 & 1.000000 & 0.5 & 1.000000 \\
+(1200, 1300] & 2 & 0 & 0.000000 & 0.5 & 0.500000 \\
+(1300, 1400] & 2 & 2 & 1.000000 & 0.5 & 0.500000 \\
+(1400, 1500] & 1 & 0 & 0.000000 & 0.5 & 1.000000 \\
+(1500, 1600] & 1 & 0 & 0.000000 & 0.5 & 1.000000 \\
+(1600, 1700] & 1 & 0 & 0.000000 & 0.5 & 1.000000 \\
+(1700, 1800] & 1 & 1 & 1.000000 & 0.5 & 1.000000 \\
+(1800, 1900] & 1 & 0 & 0.000000 & 0.5 & 1.000000 \\
+\hline
+\end{tabular}
+\caption{Recognition Statistics by Score Ranges}
+\label{tab:recognition_stats}
+\end{table}
+
+As can be seen, the low number of session for each range does not allow to unvalidate the null hypothesis, that the last real word chance of being recognised are random. However, the null hypothesis can not be validated neither, we can only state that the result are so far consistant with it. Note that this method seem to be able to show early signs of potential ceiling effects. The transition from below to above 900 seems to show potential ceiling effects. The range 800–900 has a higher mean than 85\%, when the 900–1000 range drops to 37\%. Once again, the sample size is to small to confirm the presence of a significant ceiling effect. But this method of analysis could show such issues if a test is used at a larger scale. On the other hand, a wider adoption of the test would a better calibration, and thus improve the results. All the code for these results can be found on github\footnote{See this link \url{https://github.com/Oktogazh/analeksis/blob/master/analeskis.ipynb}}.
+
 \section{Limitations and Interpretation of the Scores}
 An easy misinterpretation to make about the test score would be to consider all the words below a final score as mastered by the test takers and those rated above the final score as unrecognisable by them. This is not exactly what the reasults imply. The final score is supposed to represent the level at which a student recognise only 50\% of the words, without necessarly understanding their meaning. An item rated 677 points less than the final score has 99\% chances of being rightfully recognised. Conversely, an item rated 677 points more than a final score would be recognised 1\% of the time. As there are more items in the higher ranges, if the final score is in the lower ranges, this 1\% is ``bigger'' than the 1\% of few items in lower ranges. In simples terms, this means that, indeed, almost all words in the lower ranges below a given rating are expected to be well known, (including with a stronger understanding of their meanings). But many words in the higher range could still be recognised.
 
@@ -59,7 +98,11 @@ People are not to be expected to learn languages the same ways. When using a sam
 \section{Future Research}
 We see three different directions of research going forward. The first is about the study of eventual ceiling effects in the tests, and the speed at which the calibration of a test can be considered completed. This aspect is essential to measure the dynamics of language acquisition. The second is about pedagogy, as the test can already be used at least for measuring ``milestone'' levels in vocabulary aquisition. This could be used to experiment on different pedagogical approaches, \textbf{including in diglossic settings}. Finally, the test could be pushed further, including in non-WEIRD environment to study language use divergence and evaluate the need for domain-specific scales.
 
-The two first directions could be researched in parallel with relatively little efforts, by focusing around adult classes of regional languages like Welsh. This would in effect turn the lack of resources and the limited reach of LRLs in a research advantage. The third one would necessitate more ressources and most likely international cohordination, with different social groups involved and would likely focus on HRLs.
+The two first directions could be researched in parallel with relatively little efforts, by focusing around adult classes of regional languages like Welsh. This would in effect turn the lack of resources and the limited reach of LRLs in a research advantage. The third one would necessitate more resources and most likely international cohordination, with different social groups involved and would likely focus on HRLs.
+
+In the broader field of AIED, the modulo clustering technique appear to be a promising way to build future MCQ tests, whose items would have been mass generated by LLMs. This method could be used to both calibrate their relative difficulty and measure the students level and progress in other fields than L2 acquisition. Other potential research could focus on simulations, to find out what are the optimum parameters (modulo base, spread of the initial items etc...) to build such tests.
 
 \section{Conclusion}
-Overall, this vocabulary test design showed that the focus on higher-resource languages in the study of language acquisition is not a fatality. Many challenges have been overcome in this dissertation, but we may end up with more new questions than answers. Luckily, these questions are asked along with clear path for analysis and refutable hypothesis. Coming back to the original question, all the element collected in this work appear to indeed support the idea that quick language tests can be created for low resource languages. The only remaining questions are, how reliable and precise can they get with an imperfect calibration, always bound to the available resource of the languages, or lack thereof. 
+Overall, this vocabulary test design showed that the focus on higher-resource languages in the study of language acquisition is not a fatality. Many challenges have been overcome in this dissertation, although we may end up with more new questions than answers. Luckily, these questions are asked along with clear methods for analysis and a refutable hypothesis. Coming back to the original question, all the element collected in this work cannot disprove the idea that quick language tests can be created for low resource languages. The only remaining questions are, how reliable and precise can they get with an imperfect calibration.
+
+Additionally, it seems to be a good measure to seek to integrate future research on the topic more closely in the usage context of these languages. The initial motivation of this work was the optimization of low resource language teaching. But in this context, can the word optimisation be understood in the sense of getting more by doing less? Based on the elements gathered in this dissertation, it seems that human skills always grow to fit their usage needs. In this regard, it may well be that the thing that needs the most to be optimised is the time spent using these languages. That is, getting more by doing more, and admitting there is no reason think a technological shortcut exists for a problem that is primarly social. Hopefully, a quick vocabulary test score may become a way to give subtance and increase awareness to the value of this cumulated usage. 

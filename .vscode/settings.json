@@ -10,5 +10,8 @@
     "latex": false,
     "bibtex": false,
     "tex": false
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": "/Library/TeX/texbin:/usr/bin:/bin:/usr/sbin:/sbin"
   }
 }
